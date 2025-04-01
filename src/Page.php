@@ -46,7 +46,7 @@ class Page
      * - remove spaces around
      * - decode escaped html entities.
      *
-     * @param string
+     * @param string $value
      *
      * @return string
      */
