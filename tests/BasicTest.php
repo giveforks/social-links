@@ -3,6 +3,7 @@
 namespace SocialLinks;
 
 use SocialLinks\Page;
+use PHPUnit\Framework\Attributes\Depends;
 use PHPUnit\Framework\TestCase;
 
 class BasicTest extends TestCase
@@ -39,9 +40,7 @@ class BasicTest extends TestCase
         return $page;
     }
 
-    /**
-     * @depends testPage
-     */
+    #[Depends('testPage')]
     public function testProviders(Page $page)
     {
         $this->assertEquals($page->blogger->shareUrl, 'https://www.blogger.com/blog-this.g?u=http%3A%2F%2Fmypage.com&n=Page+title');
@@ -78,9 +77,7 @@ class BasicTest extends TestCase
         $this->assertEquals($page->bluesky->shareUrl, 'https://bsky.app/intent/compose?text=http%3A%2F%2Fmypage.com');
     }
 
-    /**
-     * @depends testPage
-     */
+    #[Depends('testPage')]
     public function testMetas(Page $page)
     {
         $twitterCard = (string) $page->twitterCard();
