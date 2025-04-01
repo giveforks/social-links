@@ -14,6 +14,8 @@ use DOMDocument;
 abstract class ProviderBase
 {
     protected $page;
+    protected $shareCount;
+    protected $shareUrl;
 
     const RFC1738 = 1;
     const RFC3986 = 2;
