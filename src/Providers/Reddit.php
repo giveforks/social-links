@@ -11,7 +11,7 @@ class Reddit extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             'https://www.reddit.com/submit',
-            array('url', 'title')
+            ['url', 'title']
         );
     }
 
@@ -23,7 +23,7 @@ class Reddit extends ProviderBase implements ProviderInterface
         return static::request(
             $this->buildUrl(
                 'https://www.reddit.com/api/info.json',
-                array('url')
+                ['url']
             )
         );
     }

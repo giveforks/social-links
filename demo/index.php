@@ -3,7 +3,7 @@ require dirname(__DIR__).'/src/autoloader.php';
 
 use SocialLinks\Page;
 
-$data = empty($_GET) ? array('url' => null, 'title' => null, 'text' => null, 'image' => null, 'icon' => null, 'twitterUser' => null) : $_GET;
+$data = empty($_GET) ? ['url' => null, 'title' => null, 'text' => null, 'image' => null, 'icon' => null, 'twitterUser' => null] : $_GET;
 ?>
 
 <!DOCTYPE html>
@@ -73,7 +73,7 @@ $data = empty($_GET) ? array('url' => null, 'title' => null, 'text' => null, 'im
 
             <?php
             $page = new Page($data);
-            $providers = array(
+            $providers = [
                 'blogger',
                 'bobrdobr',
                 'cabozo',
@@ -105,7 +105,7 @@ $data = empty($_GET) ? array('url' => null, 'title' => null, 'text' => null, 'im
                 'vk',
                 'whatsapp',
                 'xing',
-            );
+            ];
 
             $page->shareCount($providers);
             ?>

@@ -13,11 +13,11 @@ class Vk extends ProviderBase implements ProviderInterface
     public function shareUrl()
     {
         return $this->buildUrl('http://vk.com/share.php',
-            array(
+            [
                 'url',
                 'title',
                 'image',
-            )
+            ]
         );
     }
 
@@ -29,8 +29,8 @@ class Vk extends ProviderBase implements ProviderInterface
         static::request(
             $this->buildUrl(
                 'https://vk.com/share.php',
-                array('url'),
-                array('act' => 'count')
+                ['url'],
+                ['act' => 'count']
             )
         );
     }

@@ -11,7 +11,7 @@ class Plus extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             'https://plus.google.com/share',
-            array('url')
+            ['url']
         );
     }
 
@@ -25,24 +25,24 @@ class Plus extends ProviderBase implements ProviderInterface
         return static::request(
             'https://clients6.google.com/rpc',
             json_encode(
-                array(
-                    array(
+                [
+                    [
                         'method' => 'pos.plusones.get',
                         'id' => 'p',
-                        'params' => array(
+                        'params' => [
                             'nolog' => true,
                             'id' => $url,
                             'source' => 'widget',
                             'userId' => '@viewer',
                             'groupId' => '@self',
-                        ),
+                        ],
                         'jsonrpc' => '2.0',
                         'key' => 'p',
                         'apiVersion' => 'v1',
-                    ),
-                )
+                    ],
+                ]
             ),
-            array('Content-type: application/json')
+            ['Content-type: application/json']
         );
     }
 

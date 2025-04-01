@@ -17,9 +17,7 @@ class Xing extends ProviderBase implements ProviderInterface
 
         return $this->buildUrl(
             'https://www.xing.com/spi/shares/new',
-            array(
-                'url',
-            )
+            ['url']
         );
     }
 
@@ -30,11 +28,11 @@ class Xing extends ProviderBase implements ProviderInterface
     {
         $url = $this->buildUrl(
             'https://www.xing-share.com/app/share',
-            array('url'),
-            array(
+            ['url'],
+            [
                 'op' => 'get_share_button',
                 'counter' => 'top',
-            )
+            ]
         );
 
         return static::request($url);

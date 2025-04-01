@@ -14,9 +14,9 @@ class Whatsapp extends ProviderBase implements ProviderInterface
         return $this->buildUrl(
             'https://api.whatsapp.com/send',
             null,
-            array(
+            [
                 'text' => $info['title'].' '.$info['url'],
-            )
+            ]
         );
     }
 }

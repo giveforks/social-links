@@ -79,7 +79,7 @@ abstract class ProviderBase
      * @param array  $getParams  extra parameters as $key => $value
      * @param int    $encoding   Type of encoding used. It can be static::RFC3986 or static::RFC1738
      */
-    protected function buildUrl($url, array $pageParams = null, array $getParams = array(), $encoding = self::RFC1738)
+    protected function buildUrl($url, ?array $pageParams = null, array $getParams = [], $encoding = self::RFC1738)
     {
         if ($pageParams) {
             $getParams += $this->page->get($pageParams);
@@ -93,7 +93,7 @@ abstract class ProviderBase
             return $url.'?'.http_build_query($getParams);
         }
 
-        $get = array();
+        $get = [];
 
         foreach ($getParams as $name => $value) {
             $get[] = $name.'='.rawurlencode($value);
@@ -115,7 +115,7 @@ abstract class ProviderBase
     {
         $connection = curl_init();
 
-        curl_setopt_array($connection, array(
+        curl_setopt_array($connection, [
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
@@ -127,7 +127,7 @@ abstract class ProviderBase
             CURLOPT_ENCODING => '',
             CURLOPT_AUTOREFERER => true,
             CURLOPT_USERAGENT => 'SocialLinks PHP Library',
-        ));
+        ]);
 
         if (!empty($post)) {
             curl_setopt($connection, CURLOPT_POST, true);

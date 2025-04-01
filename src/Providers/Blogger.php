@@ -11,10 +11,10 @@ class Blogger extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             'https://www.blogger.com/blog-this.g',
-            array(
+            [
                 'url' => 'u',
                 'title' => 'n',
-            )
+            ]
         );
     }
 }

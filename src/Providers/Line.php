@@ -11,7 +11,7 @@ class Line extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             'https://social-plugins.line.me/lineit/share',
-            array('url')
+            ['url']
         );
     }
 }

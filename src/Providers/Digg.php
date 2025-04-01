@@ -11,7 +11,7 @@ class Digg extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             'https://digg.com/submit',
-            array('url')
+            ['url']
         );
     }
 }

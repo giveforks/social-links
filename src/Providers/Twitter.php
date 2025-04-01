@@ -9,7 +9,7 @@ class Twitter extends ProviderBase implements ProviderInterface
      */
     public function shareUrl()
     {
-        $data = $this->page->get(array('title', 'twitterUser'));
+        $data = $this->page->get(['title', 'twitterUser']);
         $text = isset($data['title']) ? trim($data['title']) : '';
 
         if (!empty($data['twitterUser']) && (strpos($text, $data['twitterUser']) === false)) {
@@ -22,8 +22,8 @@ class Twitter extends ProviderBase implements ProviderInterface
 
         return $this->buildUrl(
             'https://twitter.com/intent/tweet',
-            array('url'),
-            array('text' => $text)
+            ['url'],
+            ['text' => $text]
         );
     }
 
@@ -35,7 +35,7 @@ class Twitter extends ProviderBase implements ProviderInterface
         return static::request(
             $this->buildUrl(
                 'https://cdn.api.twitter.com/1/urls/count.json',
-                array('url')
+                ['url']
             )
         );
     }

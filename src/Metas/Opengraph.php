@@ -7,10 +7,10 @@ class Opengraph extends MetaBase implements MetaInterface
     const META_ATTRIBUTE_NAME = 'property';
     const META_NAME_PREFIX = 'og:';
 
-    protected static $characterLimits = array(
+    protected static $characterLimits = [
         'title' => 65,
         'description' => 156,
-    );
+    ];
 
     /**
      * {@inheritdoc}
@@ -19,16 +19,16 @@ class Opengraph extends MetaBase implements MetaInterface
     {
         $this->addMeta('type', 'website');
 
-        $this->addMetas($this->page->get(array(
+        $this->addMetas($this->page->get([
             'title',
             'url',
             'text' => 'description',
-        )));
+        ]));
 
-        $images = array_filter($this->page->get(array(
+        $images = array_filter($this->page->get([
             'image',
             'icon'
-        )));
+        ]));
 
         if (count($images) === 1) {
             $this->addMeta('image', array_shift($images));

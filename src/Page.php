@@ -10,17 +10,17 @@ namespace SocialLinks;
  */
 class Page
 {
-    protected $config = array();
-    protected $providers = array();
-    protected $metas = array();
-    protected $info = array(
+    protected $config = [];
+    protected $providers = [];
+    protected $metas = [];
+    protected $info = [
         'url' => null,
         'title' => null,
         'text' => null,
         'image' => null,
         'icon' => null,
         'twitterUser' => null,
-    );
+    ];
 
     /**
      * Constructor.
@@ -28,7 +28,7 @@ class Page
      * @param array $info   The page info. Only url, title, text, image, icon and twitterUser fields are available
      * @param array $config Configuration options
      */
-    public function __construct(array $info, array $config = array())
+    public function __construct(array $info, array $config = [])
     {
         if (array_diff_key($info, $this->info)) {
             throw new \Exception('Only the following fields are available:'.implode(',', array_keys($this->info)));
@@ -139,7 +139,7 @@ class Page
             return;
         }
 
-        $connections = array();
+        $connections = [];
         $curl = curl_multi_init();
 
         foreach ($providers as $provider) {
@@ -249,7 +249,7 @@ class Page
             return $this->info;
         }
 
-        $data = array();
+        $data = [];
 
         foreach ($info as $name => $rename) {
             if (is_int($name)) {

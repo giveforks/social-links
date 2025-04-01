@@ -11,7 +11,7 @@ class Pocket extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             'https://getpocket.com/edit',
-            array('url')
+            ['url']
         );
     }
 }

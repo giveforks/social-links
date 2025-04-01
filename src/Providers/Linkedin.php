@@ -11,12 +11,12 @@ class Linkedin extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             'https://www.linkedin.com/shareArticle',
-            array(
+            [
                 'url',
                 'title',
                 'text' => 'summary',
-            ),
-            array('mini' => true)
+            ],
+            ['mini' => true]
         );
     }
 
@@ -28,8 +28,8 @@ class Linkedin extends ProviderBase implements ProviderInterface
         return static::request(
             $this->buildUrl(
                 'https://www.linkedin.com/countserv/count/share',
-                array('url'),
-                array('format' => 'json')
+                ['url'],
+                ['format' => 'json']
             )
         );
     }

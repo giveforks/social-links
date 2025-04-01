@@ -10,23 +10,23 @@ class BasicTest extends TestCase
 {
     public function testPage()
     {
-        $info = array(
+        $info = [
             'url' => 'http://mypage.com   ',
             'title' => "Page \n  <strong>title</strong>\n",
             'text' => 'Extended <strong>page description</strong> &amp; ',
             'image' => 'http://mypage.com/image.png',
             'twitterUser' => '@twitterUser',
             'icon' => 'http://mypage.com/favicon.png'
-        );
+        ];
 
-        $infoNormalized = array(
+        $infoNormalized = [
             'url' => 'http://mypage.com',
             'title' => 'Page title',
             'text' => 'Extended page description &',
             'image' => 'http://mypage.com/image.png',
             'twitterUser' => '@twitterUser',
             'icon' => 'http://mypage.com/favicon.png'
-        );
+        ];
 
         $page = new Page($info);
 
@@ -119,17 +119,17 @@ EOT
 
     public function testOptions()
     {
-        $info = array(
+        $info = [
             'url' => 'http://example.com',
             'title' => 'Title',
             'text' => 'Description',
             'image' => 'http://example.com/image.png',
             'twitterUser' => '@example',
-        );
+        ];
 
-        $page = new Page($info, array(
+        $page = new Page($info, [
             'twitter_card_type' => 'summary_large_image'
-        ));
+        ]);
 
         $twitterCard = $page->twitterCard();
 

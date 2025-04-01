@@ -11,7 +11,7 @@ class Classroom extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             'https://classroom.google.com/share',
-            array('url', 'title')
+            ['url', 'title']
         );
     }
 }
