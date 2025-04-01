@@ -243,7 +243,7 @@ class Page
      *
      * @return array
      */
-    public function get(array $info = null)
+    public function get(?array $info = null)
     {
         if ($info === null) {
             return $this->info;

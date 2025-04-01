@@ -111,7 +111,7 @@ abstract class ProviderBase
      *
      * @return resource
      */
-    protected static function request($url, $post = false, array $headers = null)
+    protected static function request($url, $post = false, ?array $headers = null)
     {
         $connection = curl_init();
 
