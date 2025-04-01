@@ -96,7 +96,7 @@ abstract class ProviderBase
         $get = [];
 
         foreach ($getParams as $name => $value) {
-            $get[] = $name.'='.rawurlencode($value);
+            $get[] = $name.'='.rawurlencode($value ?? '');
         }
 
         return $url.'?'.implode(ini_get('arg_separator.output'), $get);
@@ -153,7 +153,7 @@ abstract class ProviderBase
      */
     protected static function jsonResponse($content)
     {
-        return json_decode($content, true);
+        return json_decode($content ?? '', true);
     }
 
     /**
@@ -165,7 +165,7 @@ abstract class ProviderBase
      */
     protected static function jsonpResponse($content)
     {
-        preg_match("/^\w+\((.*)\)$/", $content, $matches);
+        preg_match("/^\w+\((.*)\)$/", $content ?? '', $matches);
 
         return json_decode($matches[1], true);
     }

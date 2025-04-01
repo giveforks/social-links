@@ -52,7 +52,7 @@ class Page
      */
     protected static function normalize($value)
     {
-        return trim(strip_tags(htmlspecialchars_decode(preg_replace('/\s+/', ' ', $value))));
+        return trim(strip_tags(htmlspecialchars_decode(preg_replace('/\s+/', ' ', $value ?? ''))));
     }
 
     /**
