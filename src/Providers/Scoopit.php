@@ -11,7 +11,7 @@ class Scoopit extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             'https://www.scoop.it/bookmarklet',
-            array('url')
+            ['url']
         );
     }
 
@@ -23,8 +23,8 @@ class Scoopit extends ProviderBase implements ProviderInterface
         return static::request(
             $this->buildUrl(
                 'http://www.scoop.it/button',
-                array('url'),
-                array('position' => 'horizontal')
+                ['url'],
+                ['position' => 'horizontal']
             )
         );
     }

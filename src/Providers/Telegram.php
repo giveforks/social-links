@@ -14,9 +14,9 @@ class Telegram extends ProviderBase implements ProviderInterface
         return $this->buildUrl(
             'tg://msg',
             null,
-            array(
+            [
                 'text' => $info['title'].' '.$info['url'],
-            )
+            ]
         );
     }
 }

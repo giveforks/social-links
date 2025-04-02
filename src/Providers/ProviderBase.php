@@ -14,6 +14,8 @@ use DOMDocument;
 abstract class ProviderBase
 {
     protected $page;
+    protected $shareCount;
+    protected $shareUrl;
 
     const RFC1738 = 1;
     const RFC3986 = 2;
@@ -79,7 +81,7 @@ abstract class ProviderBase
      * @param array  $getParams  extra parameters as $key => $value
      * @param int    $encoding   Type of encoding used. It can be static::RFC3986 or static::RFC1738
      */
-    protected function buildUrl($url, array $pageParams = null, array $getParams = array(), $encoding = self::RFC1738)
+    protected function buildUrl($url, ?array $pageParams = null, array $getParams = [], $encoding = self::RFC1738)
     {
         if ($pageParams) {
             $getParams += $this->page->get($pageParams);
@@ -93,10 +95,10 @@ abstract class ProviderBase
             return $url.'?'.http_build_query($getParams);
         }
 
-        $get = array();
+        $get = [];
 
         foreach ($getParams as $name => $value) {
-            $get[] = $name.'='.rawurlencode($value);
+            $get[] = $name.'='.rawurlencode($value ?? '');
         }
 
         return $url.'?'.implode(ini_get('arg_separator.output'), $get);
@@ -111,11 +113,11 @@ abstract class ProviderBase
      *
      * @return resource
      */
-    protected static function request($url, $post = false, array $headers = null)
+    protected static function request($url, $post = false, ?array $headers = null)
     {
         $connection = curl_init();
 
-        curl_setopt_array($connection, array(
+        curl_setopt_array($connection, [
             CURLOPT_URL => $url,
             CURLOPT_RETURNTRANSFER => true,
             CURLOPT_FOLLOWLOCATION => true,
@@ -127,7 +129,7 @@ abstract class ProviderBase
             CURLOPT_ENCODING => '',
             CURLOPT_AUTOREFERER => true,
             CURLOPT_USERAGENT => 'SocialLinks PHP Library',
-        ));
+        ]);
 
         if (!empty($post)) {
             curl_setopt($connection, CURLOPT_POST, true);
@@ -153,7 +155,7 @@ abstract class ProviderBase
      */
     protected static function jsonResponse($content)
     {
-        return json_decode($content, true);
+        return json_decode($content ?? '', true);
     }
 
     /**
@@ -165,7 +167,7 @@ abstract class ProviderBase
      */
     protected static function jsonpResponse($content)
     {
-        preg_match("/^\w+\((.*)\)$/", $content, $matches);
+        preg_match("/^\w+\((.*)\)$/", $content ?? '', $matches);
 
         return json_decode($matches[1], true);
     }

@@ -14,7 +14,7 @@ abstract class MetaBase extends ArrayObject
     const META_NAME_PREFIX = '';
 
     protected $page;
-    protected static $characterLimits = array();
+    protected static $characterLimits = [];
 
     /**
      * Constructor.

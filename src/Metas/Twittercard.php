@@ -6,21 +6,21 @@ class Twittercard extends MetaBase implements MetaInterface
 {
     const META_NAME_PREFIX = 'twitter:';
 
-    protected static $characterLimits = array(
+    protected static $characterLimits = [
         'title' => 65,
         'description' => 200,
-    );
+    ];
 
     /**
      * {@inheritdoc}
      */
     protected function generateTags()
     {
-        $this->addMetas($this->page->get(array(
+        $this->addMetas($this->page->get([
             'title',
             'text' => 'description',
             'twitterUser' => 'site',
-        )));
+        ]));
 
         if ($this->page->getImage()) {
             $this->addMeta('card', 'summary_large_image');

@@ -11,7 +11,7 @@ class Delicious extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             'https://delicious.com/save',
-            array('url', 'title')
+            ['url', 'title']
         );
     }
 }

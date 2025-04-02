@@ -4,24 +4,24 @@ namespace SocialLinks\Metas;
 
 class Html extends MetaBase implements MetaInterface
 {
-    protected static $characterLimits = array(
+    protected static $characterLimits = [
         'title' => 55,
         'description' => 155,
-    );
+    ];
 
     /**
      * {@inheritdoc}
      */
     protected function generateTags()
     {
-        $this->addMetas($this->page->get(array(
+        $this->addMetas($this->page->get([
             'title',
             'text' => 'description',
-        )));
+        ]));
 
-        $this->addLinks($this->page->get(array(
+        $this->addLinks($this->page->get([
             'image' => 'image_src',
             'url' => 'canonical',
-        )));
+        ]));
     }
 }

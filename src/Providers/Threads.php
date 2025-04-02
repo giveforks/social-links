@@ -9,13 +9,13 @@ class Threads extends ProviderBase implements ProviderInterface
      */
     public function shareUrl()
     {
-        $data = $this->page->get(array('title'));
+        $data = $this->page->get(['title']);
         $text = isset($data['title']) ? trim($data['title']) : '';
 
         return $this->buildUrl(
             'https://threads.net/intent/post',
-            array('url'),
-            array('text' => $text)
+            ['url'],
+            ['text' => $text]
         );
     }
 
@@ -27,11 +27,11 @@ class Threads extends ProviderBase implements ProviderInterface
         return static::request(
             $this->buildUrl(
                 'https://graph.threads.net/v1.0/insights',
-                array(),
-                array(
+                [],
+                [
                     'metric' => 'likes',
                     'id' => $this->page->getUrl(),
-                )
+                ]
             )
         );
     }

@@ -13,7 +13,7 @@ class Meneame extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             "{$this->domain}/submit.php",
-            array('url')
+            ['url']
         );
     }
 
@@ -25,7 +25,7 @@ class Meneame extends ProviderBase implements ProviderInterface
         return static::request(
             $this->buildUrl(
                 "{$this->domain}/api/url.php",
-                array('url')
+                ['url']
             )
         );
     }

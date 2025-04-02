@@ -14,11 +14,11 @@ class Evernote extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             'https://www.evernote.com/clip.action',
-            array(
-                'url',
-                'title',
+            [
+                'url' => 'url',
+                'title' => 'title',
                 'text' => 'body',
-            )
+            ]
         );
     }
 }

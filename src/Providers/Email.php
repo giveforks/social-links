@@ -21,10 +21,10 @@ class Email extends ProviderBase implements ProviderInterface
         return $this->buildUrl(
             'mailto:',
             null,
-            array(
+            [
                 'subject' => $subject,
                 'body' => $body,
-            ),
+            ],
             static::RFC3986
         );
     }

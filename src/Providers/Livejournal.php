@@ -9,7 +9,7 @@ class Livejournal extends ProviderBase implements ProviderInterface
      */
     public function shareUrl()
     {
-        $titleArray = $this->page->get(array('title'));
+        $titleArray = $this->page->get(['title']);
 
         if (isset($titleArray['title'])) {
             $title = $titleArray['title'];
@@ -21,8 +21,8 @@ class Livejournal extends ProviderBase implements ProviderInterface
 
         return $this->buildUrl(
             'http://www.livejournal.com/update.bml',
-            array('title' => 'subject'),
-            array('event' => $postText)
+            ['title' => 'subject'],
+            ['event' => $postText]
         );
     }
 }

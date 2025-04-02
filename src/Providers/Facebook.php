@@ -11,14 +11,14 @@ class Facebook extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             'https://www.facebook.com/sharer/sharer.php',
-            array(
+            [
                 'url' => 'u',
                 'title' => 't',
-            ),
-            array(
+            ],
+            [
                 'display' => 'popup',
                 'redirect_uri' => 'http://www.facebook.com',
-            )
+            ]
         );
     }
 
@@ -30,10 +30,10 @@ class Facebook extends ProviderBase implements ProviderInterface
         return static::request(
             $this->buildUrl(
                 'https://graph.facebook.com/',
-                array(),
-                array(
+                [],
+                [
                     'id' => $this->page->getUrl(),
-                )
+                ]
             )
         );
     }

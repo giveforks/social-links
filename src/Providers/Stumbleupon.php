@@ -11,10 +11,10 @@ class Stumbleupon extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             'https://www.stumbleupon.com/submit',
-            array(
+            [
                 'url',
                 'title',
-            )
+            ]
         );
     }
 
@@ -26,7 +26,7 @@ class Stumbleupon extends ProviderBase implements ProviderInterface
         return static::request(
             $this->buildUrl(
                 'http://www.stumbleupon.com/services/1.01/badge.getinfo',
-                array('url')
+                ['url']
             )
         );
     }

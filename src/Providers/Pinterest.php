@@ -11,11 +11,11 @@ class Pinterest extends ProviderBase implements ProviderInterface
     {
         return $this->buildUrl(
             'https://www.pinterest.com/pin/create/button/',
-            array(
+            [
                 'url',
                 'title' => 'description',
                 'image' => 'media',
-            )
+            ]
         );
     }
 
@@ -27,7 +27,7 @@ class Pinterest extends ProviderBase implements ProviderInterface
         return static::request(
             $this->buildUrl(
                 'https://api.pinterest.com/v1/urls/count.json',
-                array('url')
+                ['url']
             )
         );
     }
